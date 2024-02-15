@@ -20,12 +20,6 @@ job runs-on:
 
     steps:
       - uses: actions/checkout@v4
-
-      - name: Set up Python version
-        uses: actions/setup-python@v4
-        with:
-          python-version: ${{ env.PYTHON_VERSION }}
-
       - name: Analyze with CodeQL
         uses: github/codeql-action/init@v3
         with:
@@ -35,6 +29,11 @@ job runs-on:
         uses: github/codeql-action/analyze@v3
         with:
          category: "/language:${{matrix.language}}"
+
+      - name: Set up Python version
+        uses: actions/setup-python@v4
+        with:
+          python-version: ${{ env.PYTHON_VERSION }}
 
       - name: Create and start virtual environment
         run: |
