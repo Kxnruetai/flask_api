@@ -2,7 +2,8 @@
 
 env:
   AZURE_WEBAPP_NAME: 'kan-devsecops'   # set this to your application's name
-  PYTHON_VERSION: '3.9'               
+  PYTHON_VERSION: '3.9'
+  
 on:
   push:
     branches:
